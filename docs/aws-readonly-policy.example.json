@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadPrecifyLogStreamsAndFilteredEvents",
+      "Effect": "Allow",
+      "Action": [
+        "logs:DescribeLogStreams",
+        "logs:FilterLogEvents"
+      ],
+      "Resource": "arn:aws:logs:us-east-1:123456789012:log-group:/ecs/automacao-ofertas-futuras-paguemenos:*"
+    },
+    {
+      "Sid": "ReadCloudWatchMetricStatisticsInApprovedRegion",
+      "Effect": "Allow",
+      "Action": "cloudwatch:GetMetricStatistics",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      }
+    },
+    {
+      "Sid": "ReadOnlyAvailableCountsForFiveQueues",
+      "Effect": "Allow",
+      "Action": "sqs:GetQueueAttributes",
+      "Resource": [
+        "arn:aws:sqs:us-east-1:123456789012:sqs-arquivo-integracao-pague-menos-prd.fifo",
+        "arn:aws:sqs:us-east-1:123456789012:sqs-arquivo-integracao-dlq-pague-menos-prd.fifo",
+        "arn:aws:sqs:us-east-1:123456789012:sqs-persistencia-precos-pague-menos-prd",
+        "arn:aws:sqs:us-east-1:123456789012:sqs-persistencia-precos-dlq-pague-menos-prd",
+        "arn:aws:sqs:us-east-1:123456789012:sqs-recebimento-campanhas-dlq-pague-menos-prd"
+      ]
+    }
+  ]
+}
