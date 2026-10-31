@@ -15,6 +15,8 @@ O diretório do programa é `%LOCALAPPDATA%\FoxcronDesktop`. O ZIP é pequeno po
 
 Se houver bloqueio por política de segurança, consulte a administração do computador. Um script sem certificado não garante aceitação por todos os controles do Windows.
 
+Portal AWS, região SSO, servidor HTTPS do cofre e URL Precify já aparecem preenchidos na primeira configuração. Você pode alterar e salvar esses campos; valores personalizados existentes são preservados. E-mail, senhas e nome do item do cofre continuam sendo informados pelo operador. O caminho padrão do bw.exe é identificado na pasta do aplicativo; um caminho externo salvo pelo operador tem prioridade.
+
 ## Atualizar
 
 O menu **Operador → Atualizar para …** aparece somente se uma nova release estável for encontrada. A consulta pública é feita ao abrir e a cada 30 minutos, sem tokens GitHub e sem dados das suas contas. Se falhar ou estiver offline, nada é instalado.
