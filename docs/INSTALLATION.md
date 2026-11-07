@@ -19,9 +19,9 @@ Portal AWS, região SSO, servidor HTTPS do cofre e URL Precify já aparecem pree
 
 ## Atualizar
 
-O menu **Operador → Atualizar para …** aparece somente se uma nova release estável for encontrada. A consulta pública é feita ao abrir e a cada 30 minutos, sem tokens GitHub e sem dados das suas contas. Se falhar ou estiver offline, nada é instalado.
+Quando uma nova release estável é confirmada, aparece um aviso permanente com a versão e o botão **Atualizar**, além da opção **Operador → Atualizar para …**. Novas execuções ficam bloqueadas até atualizar; uma rotina em andamento pode terminar ou ser cancelada com segurança. A consulta pública é feita ao abrir e a cada 30 minutos, sem tokens GitHub e sem dados das suas contas. Se falhar ou estiver offline, nada é instalado.
 
-A atualização é voluntária e só começa com o app ocioso. Depois de conferir origem e SHA-256, o app abre o script de instalação e encerra com segurança. O script prepara uma nova versão, aguarda a anterior encerrar e só então troca o destino do atalho. Se uma etapa falhar, a versão ativa anterior permanece disponível.
+A atualização começa ao clicar em **Atualizar**, com o app ocioso. Se a consulta não conseguir confirmar uma versão nova, o uso continua permitido; uma atualização já confirmada na sessão mantém o bloqueio mesmo se a rede falhar depois. Depois de conferir origem e SHA-256, o app abre o script de instalação e encerra com segurança. O script prepara uma nova versão, aguarda a anterior encerrar e só então troca o destino do atalho. Se uma etapa falhar, a versão ativa anterior permanece disponível; se o download falhar no aplicativo, o aviso permite tentar novamente. Ao concluir a instalação, a nova versão é aberta automaticamente.
 
 Versões antigas ficam em `%LOCALAPPDATA%\FoxcronDesktop\versions` para recuperação; não são removidas automaticamente. Se necessário, peça orientação antes de excluir pastas. Para recuperar manualmente, feche o app e execute o `app.py` da pasta anterior com o respectivo `.venv\Scripts\python.exe`.
 
@@ -45,3 +45,5 @@ py -m venv .venv
 ```
 
 O instalador cria uma instalação separada; não sobrescreve um checkout Git. Para testar telas sem contas: `.\.venv\Scripts\python.exe app.py --demo`.
+
+Executar pelo checkout de desenvolvimento não altera esse checkout ao atualizar pelo aplicativo: o instalador prepara uma instalação gerenciada separada. Versões anteriores que só exibem a atualização no menu precisam ser atualizadas uma vez por esse caminho para receber o aviso permanente e o bloqueio.
