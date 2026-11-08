@@ -1,11 +1,8 @@
-# Foxcron Desktop 1.26.3
+# Foxcron Desktop 1.26.4
 
-- Relatório AWS com quadro de altura automática: a linha de performance do banco permanece visível, inclusive no layout compacto.
-- Aviso permanente com versão e botão **Atualizar**, sem precisar abrir o menu Operador.
-- Quando uma nova versão estável é confirmada, novas execuções ficam bloqueadas até atualizar. A rotina em andamento pode terminar ou ser cancelada com segurança; atualização começa com o aplicativo ocioso.
-- Se a consulta não conseguir confirmar atualização, o uso continua permitido. Uma atualização já confirmada na sessão mantém o aviso após falhas de consulta ou download, com opção de tentar novamente.
-- Instalação, SHA-256, reabertura após atualização, cadastros, histórico, login/MFA e rotinas AWS/Precify preservados. Sem novas dependências.
+- Corrige o histórico Precify: quando a tela carregou e o botão **Lotes em processamento** não aparece, o resultado é **0 processamentos na fila**.
+- A ausência válida não torna a execução incompleta; o resumo informa **SEM PROCESSAMENTOS**, e a métrica mostra zero.
+- Tela vazia, login, carregamento visível, falha de navegação ou número ilegível continuam sendo tratados como leitura não confirmada.
+- Preserva formatos Precify, AWS, cadastros, histórico, login/MFA, instalação por script e atualização com SHA-256. Sem novas dependências.
 
-Quem utiliza uma versão anterior precisa abrir **Operador → Atualizar para 1.26.3** uma vez para receber o aviso permanente e o bloqueio de novas execuções quando houver atualização confirmada.
-
-Validação com 339 testes simulados, dados temporários e capturas DEMO; nenhum acesso operacional real realizado.
+Validação com 341 testes simulados, HTML sintético e dados temporários; nenhum acesso operacional real realizado.
