@@ -1,8 +1,8 @@
-# Foxcron Desktop 1.26.4
+# Foxcron Desktop 1.26.5
 
-- Corrige o histórico Precify: quando a tela carregou e o botão **Lotes em processamento** não aparece, o resultado é **0 processamentos na fila**.
-- A ausência válida não torna a execução incompleta; o resumo informa **SEM PROCESSAMENTOS**, e a métrica mostra zero.
-- Tela vazia, login, carregamento visível, falha de navegação ou número ilegível continuam sendo tratados como leitura não confirmada.
-- Preserva formatos Precify, AWS, cadastros, histórico, login/MFA, instalação por script e atualização com SHA-256. Sem novas dependências.
+- Corrige a rejeição do endereço regional `{região}.signin.aws` na autorização SSO, alinhando a validação à etapa do navegador.
+- Preserva HTTPS, região configurada e restrições de segurança do endereço.
+- Login/MFA automáticos, cadastros, rotinas AWS/Precify, instalação e atualização com SHA-256 mantidos. Sem novas dependências.
+- O módulo experimental de macros/clipboard não faz parte desta distribuição.
 
-Validação com 341 testes simulados, HTML sintético e dados temporários; nenhum acesso operacional real realizado.
+Validação com 343 testes usando mocks, páginas sintéticas e dados temporários; nenhum acesso operacional real realizado.
