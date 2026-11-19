@@ -5,7 +5,7 @@ Comece pelo resultado da rotina e pelas últimas etapas em **Atividade**. Um val
 | Sintoma | O que conferir |
 | --- | --- |
 | O aplicativo não abre | Execute os comandos do guia de instalação na pasta correta; confira Python, `.venv` e dependências. Registre a mensagem do terminal sem compartilhar dados sensíveis. |
-| Chromium indisponível | Feche o app e execute `.\.venv\Scripts\python.exe -m playwright install chromium` na pasta do projeto. |
+| Chromium indisponível | Feche o app e execute `.\.venv\Scripts\python.exe -m playwright install --no-shell chromium` na pasta do projeto. |
 | CLI do cofre não encontrada | Em Meu acesso, confira o caminho completo do `bw.exe` oficial e se o arquivo ainda existe. |
 | Cofre não conecta | Confira servidor HTTPS, e-mail, senha mestra e conectividade. O login automático não trata desafios adicionais do próprio cofre. |
 | Item AWS não encontrado/duplicado | Use o nome exato de um item único, com usuário, senha e TOTP. |

@@ -40,7 +40,7 @@ git clone https://github.com/FoxStrife/FoxcronDesktop.git
 Set-Location .\FoxcronDesktop
 py -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m playwright install chromium
+.\.venv\Scripts\python.exe -m playwright install --no-shell chromium
 .\.venv\Scripts\python.exe app.py
 ```
 
