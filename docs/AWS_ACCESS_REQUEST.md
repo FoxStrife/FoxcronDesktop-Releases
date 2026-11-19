@@ -25,6 +25,8 @@ Conta, função e recursos são específicos deste ambiente. Incluir novas filas
 | `logs:DescribeLogStreams` | Localizar o stream do dia no grupo configurado |
 | `logs:FilterLogEvents` | Ler os eventos filtrados de ofertas futuras |
 | `cloudwatch:GetMetricStatistics` | Consultar a estatística CPUUtilization |
+| `ecs:ListTasks` | Listar todas as páginas de tarefas do cluster integrador aprovado |
+| `ecs:DescribeTasks` | Confirmar estado real e horário de início; detectar execução acima de 3 horas |
 | `sqs:GetQueueAttributes` | Obter ApproximateNumberOfMessages nas filas configuradas |
 
 O Foxcron confirma a conta com `sts:GetCallerIdentity` antes das consultas. A operação não exige concessão explícita de permissão e não comprova acesso aos demais serviços. A identidade também precisa estar habilitada a obter a função da conta pelo SSO.
@@ -44,3 +46,9 @@ Não é necessário acesso SQL ao RDS. Não são solicitadas operações de envi
 - [AWS: ações de CloudWatch](https://docs.aws.amazon.com/service-authorization/latest/reference/list_cloudwatch.html).
 - [AWS: ações de CloudWatch Logs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_logs.html).
 - [AWS: GetCallerIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetCallerIdentity.html).
+
+### Verificação de duração ECS
+
+A rotina operacional também consulta o cluster `ecs-integrador-fargate-pague-menos-prd` em `us-east-1`. São necessárias `ecs:ListTasks` e `ecs:DescribeTasks`; nenhuma permissão de parar/executar tarefas. O exemplo condiciona as leituras ao cluster e à região; `DescribeTasks` cobre ARNs longos de tarefas desse cluster. Somente o administrador pode revisar/aplicar a política; o Foxcron não altera IAM. A listagem exige `Resource: "*"` no exemplo com condição `ecs:cluster`; não confunda a condição com um ARN de cluster usado como recurso de tarefa. [Referência IAM ECS](https://docs.aws.amazon.com/service-authorization/latest/reference/list_ecs.html).
+
+Sem permissão ou com resposta parcial, a execução fica incompleta e o relatório de sucesso é bloqueado. O diagnóstico limitado de acesso continua amostral e não substitui a execução operacional completa com ECS.

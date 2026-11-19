@@ -47,3 +47,10 @@ py -m venv .venv
 O instalador cria uma instalação separada; não sobrescreve um checkout Git. Para testar telas sem contas: `.\.venv\Scripts\python.exe app.py --demo`.
 
 Executar pelo checkout de desenvolvimento não altera esse checkout ao atualizar pelo aplicativo: o instalador prepara uma instalação gerenciada separada. Versões anteriores que só exibem a atualização no menu precisam ser atualizadas uma vez por esse caminho para receber o aviso permanente e o bloqueio.
+
+
+## Foxcron Agent opcional
+
+Macros e histórico de clipboard são administrados em **Operador → Ferramentas**.
+A instalação não habilita captura, expansão ou autostart automaticamente.
+Consulte [instalação, uso e limites do Foxcron Agent](OPTIONAL_TOOLS.md).

@@ -36,3 +36,10 @@ O pacote é verificado por SHA-256 e preparado em outra pasta. A versão ativa s
 AWS é consultada somente pela API, sem consumir ou alterar mensagens SQS. O navegador interno autentica o SSO e executa Precify. O ambiente monitorado é específico de Pague Menos; cada operador precisa das permissões correspondentes.
 
 Senhas, tokens e TOTP são protegidos no cofre do Windows. Não compartilhe banco ou sessões com outro operador. O ZIP contém o código Python necessário à execução; não contém dados pessoais ou materiais administrativos.
+
+
+## Foxcron Agent opcional
+
+Macros e histórico de clipboard são administrados em **Operador → Ferramentas**.
+A instalação não habilita captura, expansão ou autostart automaticamente.
+Consulte [instalação, uso e limites do Foxcron Agent](docs/OPTIONAL_TOOLS.md).

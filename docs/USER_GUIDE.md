@@ -14,9 +14,10 @@ Na **Visão geral**, clique em **Executar AWS**. Quando necessário, o Foxcron a
 | --- | --- |
 | CloudWatch | Stream confirmado para o dia operacional em UTC−03:00; pesquisa de ofertas futuras inicializadas com sucesso |
 | CPU | Métrica CPUUtilization do RDS, média de 60 segundos e amostra recente válida |
+| ECS | Tarefas realmente em execução no cluster integrador; acima de 3 horas gera alerta e bloqueia o relatório de sucesso |
 | SQS | Mensagens disponíveis aproximadas nas cinco filas configuradas; zero é OK e valor positivo gera alerta |
 
-CloudWatch, CPU e o bloco SQS são consultados em paralelo; as filas são consultadas em sequência. Uma falha de leitura pode permitir que as demais verificações continuem, mas o resultado geral fica incompleto. Credencial inválida/expirada impede novas chamadas que dependam dela.
+CloudWatch, CPU, ECS e o bloco SQS são consultados em paralelo; as filas são consultadas em sequência. Uma falha de leitura pode permitir que as demais verificações continuem, mas o resultado geral fica incompleto. Credencial inválida/expirada impede novas chamadas que dependam dela.
 
 Stream do dia ausente não é substituído automaticamente pelo de ontem. Se a automação do dia ainda não rodou, o resultado pode ser inconclusivo; execute novamente no horário operacional correto. Ausência de eventos só significa “Nenhuma oferta futura para inicializar” após uma consulta válida concluída.
 
@@ -36,8 +37,8 @@ AWS e Precify são independentes, mas somente uma rotina é executada por vez.
 
 ![Atividade com acompanhamento ao vivo; dados de demonstração](images/activity.png)
 
-- As etapas mostram preparação de acesso, consultas e conclusão. CloudWatch, CPU e SQS podem estar em andamento juntos; as cinco filas continuam sequenciais. Os tempos exibidos são medidos, sem percentual estimado.
-- Expanda **Detalhes dos resultados desta sessão** para conferir as filas SQS, cobertura Precify, bloqueios e resumo. O painel tem rolagem própria.
+- As etapas mostram preparação de acesso, consultas e conclusão. CloudWatch, CPU, ECS e SQS podem estar em andamento juntos; as cinco filas continuam sequenciais. Os tempos exibidos são medidos, sem percentual estimado.
+- Expanda **Detalhes dos resultados desta sessão** para conferir as tarefas ECS com atraso e suas durações, filas SQS, cobertura Precify, bloqueios e resumo. O painel tem rolagem própria.
 - **Acompanhar ao vivo** mantém a última linha visível. Desative para ler mensagens anteriores.
 - **Fonte do log** permite 14, 16, 18 ou 20 px.
 - **Cancelar execução** solicita a interrupção e aguarda as operações em andamento e a limpeza dos recursos. Não é encerramento instantâneo de uma chamada de rede.
@@ -55,7 +56,7 @@ Uma execução cancelada antes de concluir não grava uma verificação concluí
 
 ## Relatório de monitoramento
 
-O relatório pertence somente à rotina AWS. Para habilitar **Copiar relatório**, AWS precisa concluir nesta sessão, com quantidade de ofertas e CPU válidas. Alertas por mensagens disponíveis nas SQS não bloqueiam a cópia: as filas não fazem parte do modelo. O alerta permanece nos resultados e no histórico. Executar Precify não gera nem invalida esse relatório.
+O relatório pertence somente à rotina AWS. Para habilitar **Copiar relatório**, AWS precisa concluir nesta sessão, com quantidade de ofertas e CPU válidas e ECS confirmado sem tarefa em execução há mais de três horas. Alertas por mensagens disponíveis nas SQS não bloqueiam a cópia: as filas não fazem parte do modelo. O alerta permanece nos resultados e no histórico. Executar Precify não gera nem invalida esse relatório.
 
 Exemplo demonstrativo:
 
@@ -90,3 +91,14 @@ Não envie essas pastas, banco ou cofre a outros operadores nem os anexe a chama
 Para backup, siga a política da organização. Copiar o SQLite não inclui as credenciais protegidas do Windows e não garante restaurar autenticação em outro usuário/computador.
 
 Pastas de dados de instalações anteriores continuam selecionadas sem movimentação. Consulte [Compatibilidade](COMPATIBILITY.md) para os nomes técnicos preservados.
+
+
+## Foxcron Agent opcional
+
+Macros e histórico de clipboard são administrados em **Operador → Ferramentas**.
+A instalação não habilita captura, expansão ou autostart automaticamente.
+Consulte [instalação, uso e limites do Foxcron Agent](OPTIONAL_TOOLS.md).
+
+### Tarefas ECS acima de três horas
+
+O Foxcron usa o início da execução (`startedAt`) e confirma o estado real (`lastStatus=RUNNING`), independentemente do status desejado. Exatamente três horas não gera alerta. Tarefas paradas não contam, e zero tarefas é válido após leitura completa. O alerta identifica a tarefa, início em UTC−03:00 e duração; aparece nos logs, detalhes da sessão e resumo do histórico existente. Não há parada automática. Dados ausentes, horário inválido, permissão negada ou paginação incompleta não são interpretados como zero e bloqueiam o relatório. A consulta é uma observação no instante indicado; não monitora continuamente depois de concluída.

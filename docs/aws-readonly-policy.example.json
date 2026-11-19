@@ -32,6 +32,34 @@
         "arn:aws:sqs:us-east-1:123456789012:sqs-persistencia-precos-dlq-pague-menos-prd",
         "arn:aws:sqs:us-east-1:123456789012:sqs-recebimento-campanhas-dlq-pague-menos-prd"
       ]
+    },
+    {
+      "Sid": "ListTasksInApprovedCluster",
+      "Effect": "Allow",
+      "Action": "ecs:ListTasks",
+      "Resource": "*",
+      "Condition": {
+        "ArnEquals": {
+          "ecs:cluster": "arn:aws:ecs:us-east-1:123456789012:cluster/ecs-integrador-fargate-pague-menos-prd"
+        },
+        "StringEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      }
+    },
+    {
+      "Sid": "DescribeTasksInApprovedCluster",
+      "Effect": "Allow",
+      "Action": "ecs:DescribeTasks",
+      "Resource": "arn:aws:ecs:us-east-1:123456789012:task/ecs-integrador-fargate-pague-menos-prd/*",
+      "Condition": {
+        "ArnEquals": {
+          "ecs:cluster": "arn:aws:ecs:us-east-1:123456789012:cluster/ecs-integrador-fargate-pague-menos-prd"
+        },
+        "StringEquals": {
+          "aws:RequestedRegion": "us-east-1"
+        }
+      }
     }
   ]
 }
