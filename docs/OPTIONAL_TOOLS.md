@@ -77,6 +77,8 @@ a pausa não é liberada apenas por timeout.
 O Desktop entrega o pacote opcional e seu SHA256. Na administração, Atualizar módulo
 verifica compatibilidade, prepara a candidata e preserva macros, histórico, preferências
 e o estado habilitado. Falha de saúde inicia reversão para versão/dados anteriores.
+Depois de confirmar a atualização, o gerenciador tenta remover somente o runtime
+imediatamente anterior.
 Aguarde qualquer rotina terminar; atualização e habilitação são bloqueadas durante
 automação/manutenção. Não há canal de atualização independente silenciosa do Agent.
 

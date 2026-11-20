@@ -23,7 +23,7 @@ Quando uma nova release estável é confirmada, aparece um aviso permanente com 
 
 A atualização começa ao clicar em **Atualizar**, com o app ocioso. Se a consulta não conseguir confirmar uma versão nova, o uso continua permitido; uma atualização já confirmada na sessão mantém o bloqueio mesmo se a rede falhar depois. Depois de conferir origem e SHA-256, o app abre o script de instalação e encerra com segurança. O script prepara uma nova versão, aguarda a anterior encerrar e só então troca o destino do atalho. Se uma etapa falhar, a versão ativa anterior permanece disponível; se o download falhar no aplicativo, o aviso permite tentar novamente. Ao concluir a instalação, a nova versão é aberta automaticamente.
 
-Versões antigas ficam em `%LOCALAPPDATA%\FoxcronDesktop\versions` para recuperação; não são removidas automaticamente. Se necessário, peça orientação antes de excluir pastas. Para recuperar manualmente, feche o app e execute o `app.py` da pasta anterior com o respectivo `.venv\Scripts\python.exe`.
+O instalador mantém a versão anterior durante a preparação da atualização. Depois de validar e ativar a nova versão, tenta remover o runtime imediatamente anterior. Se a preparação falhar, a versão anterior continua disponível. Se a limpeza não puder ser feita com segurança, a pasta anterior é mantida. Os dados e o cache de downloads ficam fora dessa limpeza.
 
 As atualizações correspondem a releases, não a qualquer commit da branch de desenvolvimento.
 
