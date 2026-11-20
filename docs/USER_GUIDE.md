@@ -10,6 +10,8 @@ O cadastro **Precify** é único: URL de login, usuário e senha. Ao editar os d
 
 Na **Visão geral**, clique em **Executar AWS**. Quando necessário, o Foxcron autentica no portal com login/MFA da origem selecionada e confirma a sessão antes de consultar os serviços.
 
+Sem cadastro automático, informe os dados de login quando o Foxcron solicitar. O código MFA só é pedido se a AWS exibir o desafio. Em **Meu acesso**, a opção **Manual** também permite escolher esse fluxo. Usuário, senha e código informados nos pop-ups são usados somente na execução. Uma sessão AWS válida pode ser reutilizada sem novos pedidos.
+
 | Dado | Regra de leitura |
 | --- | --- |
 | CloudWatch | Stream confirmado para o dia operacional em UTC−03:00; pesquisa de ofertas futuras inicializadas com sucesso |
