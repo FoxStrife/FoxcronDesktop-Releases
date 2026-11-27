@@ -1,4 +1,12 @@
-# Foxcron Desktop 1.27.9 — recuperação de atualização, diagnóstico e Foxcron Agent 1.0.4
+# Foxcron Desktop 1.27.10 — busca manual e atualização do Foxcron Agent
+
+27/11/2026
+
+- **Buscar atualização do Desktop.** Em **Operador → Buscar atualização**, consulte na hora se há uma versão mais nova. O download só começa quando você seleciona **Atualizar** no aviso ou escolhe atualizar pelo próprio menu. A busca automática continua a cada 30 minutos.
+- **Aviso de atualização do Agent.** Se o Agent estiver instalado e o pacote local do Desktop contiver uma versão mais nova, válida e compatível, o aviso mostra a versão e oferece **Abrir Ferramentas**. A oferta do Agent vem do pacote incluído no Desktop, que contém o Foxcron Agent 1.0.4.
+- **Progresso da atualização do Agent.** Ao selecionar **Atualizar módulo**, acompanhe a preparação do pacote e das dependências, o encerramento da versão atual, a cópia de segurança dos dados, a ativação e a verificação do funcionamento. A mensagem final distingue atualização concluída, recuperação concluída e falha. Quando a recuperação for concluída, confira a versão instalada.
+
+## Foxcron Desktop 1.27.9 — recuperação de atualização, diagnóstico e Foxcron Agent 1.0.4
 
 26/11/2026
 

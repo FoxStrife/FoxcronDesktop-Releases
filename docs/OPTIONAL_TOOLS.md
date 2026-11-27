@@ -1,6 +1,6 @@
 # Foxcron Agent — macros e histórico de clipboard
 
-Foxcron Agent 1.0.4 é o componente opcional incluído no Foxcron Desktop 1.27.9.
+Foxcron Agent 1.0.4 é o componente opcional incluído no Foxcron Desktop 1.27.10.
 Disponível para Windows 10/11 x64, com instalação e ativação separadas.
 
 ## Instalar e habilitar
@@ -33,7 +33,7 @@ homologação específica; não existe garantia de funcionamento em qualquer apl
 
 ## Janela rápida e cópia
 
-Em **Preferências** na aba **Administração**, ative **Modo de baixo consumo da janela rápida**. A partir do próximo início do Agent, a janela carrega no primeiro uso. A primeira abertura pode demorar mais. O pré-carregamento continua como padrão, e macros e captura de histórico seguem suas preferências. Se o Agent já estiver instalado, atualize o Desktop e use **Atualizar módulo** para ter acesso à opção.
+Em **Preferências** na aba **Administração**, ative **Modo de baixo consumo da janela rápida**. A partir do próximo início do Agent, a janela carrega no primeiro uso. A primeira abertura pode demorar mais. O pré-carregamento continua como padrão, e macros e captura de histórico seguem suas preferências. Se o Agent instalado for anterior à versão 1.0.4, atualize o Desktop e use **Atualizar módulo** para ter acesso à opção.
 
 - Win+V abre o histórico; Ctrl+Alt+Espaço abre a busca de macros.
 - A janela tem tamanho fixo; mova-a pela faixa superior ou pelos seis pontinhos.
@@ -76,13 +76,21 @@ a pausa não é liberada apenas por timeout.
 
 ## Atualizar, desativar e remover
 
-O Desktop entrega o pacote opcional e seu SHA256. Na administração, Atualizar módulo
-verifica compatibilidade, prepara a candidata e preserva macros, histórico, preferências
-e o estado habilitado. Falha de saúde inicia reversão para versão/dados anteriores.
-Depois de confirmar a atualização, o gerenciador tenta remover somente o runtime
-imediatamente anterior.
-Aguarde qualquer rotina terminar; atualização e habilitação são bloqueadas durante
-automação/manutenção. Não há canal de atualização independente silenciosa do Agent.
+O Desktop entrega o pacote opcional e seu SHA-256. Quando o Agent está instalado e o
+pacote local contém uma versão mais nova, válida e compatível, o Desktop mostra a
+versão disponível e a opção **Abrir Ferramentas**. **Operador → Buscar atualização**
+também confere a versão do Agent no pacote local.
+
+Na administração, **Atualizar módulo** mostra as etapas de preparação, encerramento
+da versão atual, cópia de segurança dos dados, ativação, verificação do funcionamento
+e conclusão. O processo preserva macros, histórico, preferências e o estado habilitado.
+Se a verificação falhar, o gerenciador tenta restaurar a versão anterior e os dados.
+O resultado distingue recuperação concluída, falha com preservação da versão anterior
+e dos dados e falha com recuperação ainda pendente. Depois de confirmar a atualização,
+o gerenciador tenta remover somente o runtime imediatamente anterior.
+
+Aguarde qualquer rotina terminar. Atualização e habilitação são bloqueadas durante
+automação ou manutenção.
 
 Desabilitar encerra o serviço sem apagar dados e desativa autostart. Desinstalar remove
 o componente, preservando a pasta de dados para reinstalação; não apaga automaticamente
