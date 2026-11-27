@@ -1,4 +1,12 @@
-# Foxcron Desktop 1.27.13 — atalhos do Menu Iniciar sem terminal
+# Foxcron Desktop 1.27.14 — progresso da atualização do Desktop
+
+27/11/2026
+
+- **Atualizando Foxcron.** Após o download, uma janela com barra animada mostra as etapas de preparação, instalação, verificação e reabertura. A janela continua visível depois que o Desktop fecha.
+- **Conclusão e recuperação.** A janela fecha quando o Foxcron confirma a abertura. Se houver falha, o instalador mostra o aviso correspondente, incluindo a recuperação da versão anterior quando ela ocorrer.
+- **Foxcron Agent.** O pacote inclui o Agent opcional 1.0.4.
+
+## Foxcron Desktop 1.27.13 — atalhos do Menu Iniciar sem terminal
 
 27/11/2026
 
