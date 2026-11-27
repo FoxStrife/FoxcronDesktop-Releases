@@ -11,7 +11,7 @@
 3. Execute **Instalar Foxcron.cmd** e aguarde os downloads.
 4. Abra pelo atalho **Foxcron** na Área de Trabalho.
 
-Windows 10/11 x64 e internet são necessários. O script instala no seu usuário, usa Python x64 existente ou tenta obtê-lo pelo winget, e baixa bibliotecas, Chromium e a CLI Bitwarden oficial. Se winget não estiver disponível, instale Python x64 de [python.org](https://www.python.org/downloads/windows/) com pip e launcher e execute o script novamente. Não requer Git ou conta GitHub.
+Use Windows x64 com interface gráfica e acesso à internet. O Windows 11 x64 é a referência para instalações limpas. O instalador prepara no seu usuário o Python, se necessário, e baixa as bibliotecas, o cliente Flet, o Chromium e a CLI Bitwarden. A instalação dispensa WinGet, Git e conta GitHub.
 
 A instalação ocupa mais espaço depois dos downloads. Políticas do Windows ou da empresa ainda podem bloquear scripts; o processo não altera políticas permanentes de segurança.
 

@@ -1,6 +1,6 @@
 # Foxcron Agent — macros e histórico de clipboard
 
-Foxcron Agent 1.0.4 é o componente opcional incluído no Foxcron Desktop 1.27.10.
+Foxcron Agent 1.0.4 é o componente opcional incluído no Foxcron Desktop 1.27.11.
 Disponível para Windows 10/11 x64, com instalação e ativação separadas.
 
 ## Instalar e habilitar

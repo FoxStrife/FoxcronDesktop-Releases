@@ -7,13 +7,15 @@
 3. Execute **Instalar Foxcron.cmd**. Aguarde a mensagem de conclusão.
 4. Use o atalho **Foxcron** na Área de Trabalho e configure **Meu acesso**.
 
-Requisitos: Windows 10/11 x64, internet e credenciais nominais AWS/Precify. O script usa Python x64 instalado ou tenta instalar Python 3.12 pelo winget oficial, sem privilégios de administrador. Se o Windows não tiver winget, instale Python x64 de python.org com pip e launcher. Ele não altera a política permanente do PowerShell, DNS ou VPN.
+Use Windows x64 com interface gráfica e acesso à internet. O instalador continua aceitando Windows 10/11 x64. Para uma instalação limpa, a referência é Windows 11 x64, listado nos requisitos atuais do Playwright. As credenciais nominais AWS/Precify são necessárias somente quando o operador configurar suas rotinas. [Requisitos do Playwright](https://playwright.dev/python/docs/intro)
 
-Os downloads vêm de Python/winget, PyPI, Playwright/Flet e GitHub oficial do Bitwarden. A CLI Bitwarden tem versão e SHA-256 fixados. Nenhum login no cofre ou na AWS ocorre durante a instalação.
+O instalador reaproveita um Python x64 compatível. Se não encontrar um, baixa o instalador oficial de `python.org`, confere seu SHA-256 e prepara o Python e o pip no perfil do usuário. O Python fornecido pelo Foxcron fica fora das pastas de versões. O fluxo dispensa WinGet e prepara também as bibliotecas do PyPI, o cliente Flet, o Chromium do Playwright e a CLI Bitwarden oficial. O preparo é local e não autentica no cofre ou na AWS.
+
+As edições Windows N precisam do **Media Feature Pack** para carregar a interface do Flet. Se os arquivos do Media Foundation estiverem ausentes, o instalador interrompe a preparação com uma mensagem específica. O recurso faz parte do Windows e sua ativação depende das permissões do computador. [Media Feature Pack para Windows N](https://support.microsoft.com/pt-br/windows/experience/platform-variants/media-feature-pack-for-windows-n)
 
 O diretório do programa é `%LOCALAPPDATA%\FoxcronDesktop`. O ZIP é pequeno porque não carrega Python, ambiente virtual, Chromium nem Bitwarden. O tamanho instalado é maior; a primeira instalação depende da internet e pode demorar.
 
-Se houver bloqueio por política de segurança, consulte a administração do computador. Um script sem certificado não garante aceitação por todos os controles do Windows.
+Políticas de execução do Windows ou da empresa podem bloquear o script ou o cliente Flet. O instalador mantém essas políticas, o DNS e a VPN. [Smart App Control no Windows](https://learn.microsoft.com/en-us/windows/apps/develop/smart-app-control/overview)
 
 Portal AWS, região SSO, servidor HTTPS do cofre e URL Precify já aparecem preenchidos na primeira configuração. Você pode alterar e salvar esses campos; valores personalizados existentes são preservados. E-mail, senhas e nome do item do cofre continuam sendo informados pelo operador. O caminho padrão do bw.exe é identificado na pasta do aplicativo; um caminho externo salvo pelo operador tem prioridade.
 
