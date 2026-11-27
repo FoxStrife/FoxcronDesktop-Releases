@@ -1,4 +1,11 @@
-# Foxcron Desktop 1.27.14 — progresso da atualização do Desktop
+# Foxcron Desktop 1.27.15 — novo visual da janela de atualização
+
+27/11/2026
+
+- **Atualizando Foxcron.** A janela ficou mais compacta e passou a usar o logo, a fonte Inter e a paleta escura do Desktop. A barra verde animada acompanha as etapas reais da instalação.
+- **Foxcron Agent.** O pacote inclui o Agent opcional 1.0.4.
+
+## Foxcron Desktop 1.27.14 — progresso da atualização do Desktop
 
 27/11/2026
 
