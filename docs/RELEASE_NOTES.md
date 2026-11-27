@@ -1,4 +1,12 @@
-# Foxcron Desktop 1.27.11 — recuperação do Foxcron Agent e preparação da instalação
+# Foxcron Desktop 1.27.12 — abertura e atualização sem terminal
+
+27/11/2026
+
+- **Abertura e atualização.** O atalho do Windows abre o Foxcron sem terminal. A reabertura após a instalação e as atualizações iniciadas pela 1.27.12 também rodam sem terminal. Ao atualizar a partir da 1.27.11, o console do atualizador antigo ainda pode aparecer.
+- **Avisos de falha e recuperação.** O lançador deixa de pedir Enter. Caixas de diálogo informam falhas de abertura ou de atualização e indicam quando a versão anterior foi recuperada.
+- **Foxcron Agent.** O pacote inclui o Agent opcional 1.0.4. Quem já usa essa versão pode continuar usando o Agent instalado.
+
+## Foxcron Desktop 1.27.11 — recuperação do Foxcron Agent e preparação da instalação
 
 27/11/2026
 
