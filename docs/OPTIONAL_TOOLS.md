@@ -1,6 +1,6 @@
 # Foxcron Agent — macros e histórico de clipboard
 
-Foxcron Agent 1.0.3 é o componente opcional incluído no Foxcron Desktop 1.27.4.
+Foxcron Agent 1.0.4 é o componente opcional incluído no Foxcron Desktop 1.27.9.
 Disponível para Windows 10/11 x64, com instalação e ativação separadas.
 
 ## Instalar e habilitar
@@ -32,6 +32,8 @@ Aplicativos protegidos/elevados, controles próprios e IME podem exigir exclusõ
 homologação específica; não existe garantia de funcionamento em qualquer aplicativo.
 
 ## Janela rápida e cópia
+
+Em **Preferências** na aba **Administração**, ative **Modo de baixo consumo da janela rápida**. A partir do próximo início do Agent, a janela carrega no primeiro uso. A primeira abertura pode demorar mais. O pré-carregamento continua como padrão, e macros e captura de histórico seguem suas preferências. Se o Agent já estiver instalado, atualize o Desktop e use **Atualizar módulo** para ter acesso à opção.
 
 - Win+V abre o histórico; Ctrl+Alt+Espaço abre a busca de macros.
 - A janela tem tamanho fixo; mova-a pela faixa superior ou pelos seis pontinhos.
