@@ -1,4 +1,11 @@
-# Foxcron Desktop 1.27.12 — abertura e atualização sem terminal
+# Foxcron Desktop 1.27.13 — atalhos do Menu Iniciar sem terminal
+
+27/11/2026
+
+- **Menu Iniciar.** O instalador atualiza os atalhos existentes do Foxcron para abrir sem terminal. Se o atalho público estiver protegido contra gravação, instala um atalho no perfil do usuário. O Menu Iniciar pode continuar exibindo a entrada pública antiga.
+- **Foxcron Agent.** O pacote inclui o Agent opcional 1.0.4.
+
+## Foxcron Desktop 1.27.12 — abertura e atualização sem terminal
 
 27/11/2026
 
